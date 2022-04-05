@@ -1,1 +1,20 @@
-<p>missionlist works!</p>
+<div class="main-div">
+    <h1 class="head-text">SpaceX Mission Launch List</h1>
+    <div *ngIf="showList" class="conatiner">
+        <div class="container color-change">
+            <mat-list>
+                <mat-list-item *ngFor="let mission of missionList" [class.selected]="mission === selectedMission"
+                    (click)="onSelectMission(mission)" class="list-item">
+                    <img matListAvatar src="{{mission.links.mission_patch_small}}">
+                    <h3 matLine>{{mission.mission_name}}</h3>
+                    <small matLine class="light-font">{{mission.launch_year}}</small>
+                    <p matLine>
+                        <span>{{mission.details || "No Details found for this Mission" | slice: 0:150}}</span>
+                        <!-- Only shows first 150 characters -->
+                    </p>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </div>
+    <app-missiondetails *ngIf="showDetails" [mission]="selectedMission" (value)="goToList($event)"></app-missiondetails>
+</div>

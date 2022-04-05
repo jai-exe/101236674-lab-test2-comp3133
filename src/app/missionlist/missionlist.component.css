@@ -1,0 +1,28 @@
+.container{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.head-text {
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+}
+
+.main-div {
+    padding-top: 25px;
+}
+
+.list-item{
+    background-color: #90ee90;
+    margin-top: 3px;
+}
+
+.list-item:hover {
+    cursor: pointer;
+}
+
+.light-font {
+    opacity: 0.5;
+    font-size: 12px;
+}

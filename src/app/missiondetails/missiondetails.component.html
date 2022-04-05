@@ -1,1 +1,44 @@
-<p>missiondetails works!</p>
+<div *ngIf="mission" class="container">
+    <mat-card style="background-color: #fff1d7;">
+        <mat-card-title-group>
+            <img mat-card-xl-image class="float-left" src="{{mission.links['mission_patch']}}">
+
+            <mat-card-title style="color: #ff2020;">Mission - {{mission.mission_name}}</mat-card-title>
+            <mat-card-subtitle>Name: {{mission.mission_name}}</mat-card-subtitle>
+            <mat-card-subtitle>Launch Year: {{mission.launch_year}}</mat-card-subtitle>
+
+            <mat-card-title style="color: #ff2020;">Rocket</mat-card-title>
+            <mat-card-subtitle>Name: {{mission.rocket['rocket_name']}}</mat-card-subtitle>
+            <mat-card-subtitle>Type: {{mission.rocket['rocket_type']}}</mat-card-subtitle>
+
+            <mat-card-title style="color: #ff2020;">Launch Site</mat-card-title>
+            <mat-card-subtitle>Name: {{mission.launch_site['site_name_long']}}</mat-card-subtitle>
+
+        </mat-card-title-group>
+
+        <br>
+
+        <mat-card-content>
+            <mat-card-title style="color: #ff2020;">Launch Details</mat-card-title>
+            <mat-card-subtitle>{{mission.details || "Details not found for this Mission!"}}</mat-card-subtitle>
+
+            <mat-card-title style="color: #ff2020;">More Info on Launch Details</mat-card-title>
+            <br>
+            <mat-card-subtitle>
+                <a href="{{mission.links['article_link']}}">
+                    <mat-icon color="primary">newspaper</mat-icon>
+                </a> 
+                &nbsp; &nbsp;
+                <a href="{{mission.links['wikipedia']}}">
+                    <mat-icon color="primary">public</mat-icon>
+                </a> 
+                &nbsp; &nbsp;
+                <a href="{{mission.links['video_link']}}">
+                    <mat-icon color="primary">videocam</mat-icon>
+                </a>
+            </mat-card-subtitle>
+            <br>
+            <button mat-stroked-button (click)="goToList(true)" color="primary">Go Back to List</button>
+        </mat-card-content>
+    </mat-card>
+</div>
